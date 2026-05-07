@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-platform
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-platform
+  template:
+    metadata:
+      labels:
+        app: devops-platform
+    spec:
+      containers:
+        - name: devops-platform
+          image: viniciusmoraodev/devops-platform:v1.0.0
+          ports:
+            - containerPort: 80
