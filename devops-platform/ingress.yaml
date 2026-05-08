@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
   kind: Ingress
   metadata:
-    name: devops-platform-ingress
+    name: repo-app1-ingress
   spec:
     ingressClassName: traefik
     rules:
@@ -11,6 +11,6 @@ apiVersion: networking.k8s.io/v1
               pathType: Prefix
               backend:
                 service:
-                  name: devops-platform
+                  name: repo-app1
                   port:
                     number: 80
