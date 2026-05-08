@@ -1,3 +1,5 @@
+# 🐳 Docker, Docker Compose, K3s e ArgoCD
+
 ---
 
 # 🧪 Testando a instalação do Docker
@@ -32,7 +34,7 @@ Isso confirma que:
 - O serviço Docker está funcionando
 - Os containers conseguem ser executados corretamente
 - A instalação dos pacotes foi realizada com sucesso
-=======================================================================================================================================
+
 ---
 
 # 🐙 Instalação do Docker Compose
@@ -72,7 +74,7 @@ Docker Compose version v2.x.x
 ```
 
 Isso confirma que o Docker Compose foi instalado com sucesso e está pronto para uso.
-=======================================================================================================================================
+
 ---
 
 # ☸️ Instalação do K3s
@@ -85,7 +87,8 @@ Execute o comando abaixo para instalar o K3s utilizando o script oficial:
 
 ```bash
 curl -sfL https://get.k3s.io/ | sh -
-=======================================================================================================================================
+```
+
 ---
 
 # 🧪 Validando o cluster K3s
@@ -94,10 +97,13 @@ Após instalar o K3s, execute o comando abaixo para verificar os nós do cluster
 
 ```bash
 sudo k3s kubectl get nodes
+```
 
+```text
 NAME            STATUS   ROLES           AGE   VERSION
 deploy-gp2026   Ready    control-plane   27s   v1.35.4+k3s1
-=======================================================================================================================================
+```
+
 ---
 
 # ⚠️ Erro de permissão ao utilizar o kubectl
@@ -106,10 +112,16 @@ Ao executar o comando:
 
 ```bash
 kubectl create namespace argocd
+```
 
+o seguinte erro foi retornado:
+
+```text
 WARN[0000] Unable to read /etc/rancher/k3s/k3s.yaml, please start server with --write-kubeconfig-mode or --write-kubeconfig-group to modify kube config permissions
+
 error: error loading config file "/etc/rancher/k3s/k3s.yaml": open /etc/rancher/k3s/k3s.yaml: permission denied
-=======================================================================================================================================
+```
+
 ---
 
 # 📦 Criando o namespace do ArgoCD
@@ -118,9 +130,12 @@ Após configurar corretamente o acesso ao `kubectl`, foi executado o seguinte co
 
 ```bash
 kubectl create namespace argocd
+```
 
+```text
 namespace/argocd created
-=======================================================================================================================================
+```
+
 ---
 
 # 🚀 Instalando o ArgoCD no Kubernetes
@@ -129,3 +144,4 @@ Com o namespace criado, execute o comando abaixo para instalar o ArgoCD no clust
 
 ```bash
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
