@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: devops-platform-svc
 spec:
+  type: NodePort
   selector:
     app: devops-platform
   ports:
