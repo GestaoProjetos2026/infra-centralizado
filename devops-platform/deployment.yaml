@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: devops-platform
-          image: viniciusmoraodev/devops-platform:v4.0.0
+          image: viniciusmoraodev/devops-platform:main
           ports:
             - containerPort: 80
