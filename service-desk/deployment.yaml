@@ -1,1 +1,19 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-desk-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-desk
+  template:
+    metadata:
+      labels:
+        app: service-desk
+    spec:
+      containers:
+        - name: service-desk
+          image: viniciusmoraodev/service-desk:latest
+          ports:
+            - containerPort: 80
