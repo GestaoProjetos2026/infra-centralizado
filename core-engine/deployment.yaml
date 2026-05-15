@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: core-engine
-          image: viniciusmoraodev/core-engine:v1.0.2
+          image: viniciusmoraodev/core-engine:main
           ports:
             - containerPort: 3000
           env:
