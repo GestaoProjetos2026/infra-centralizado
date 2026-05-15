@@ -1,1 +1,19 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crm-leads-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crm-leads
+  template:
+    metadata:
+      labels:
+        app: crm-leads
+    spec:
+      containers:
+        - name: crm-leads
+          image: viniciusmoraodev/crm-leads:latest
+          ports:
+            - containerPort: 80
