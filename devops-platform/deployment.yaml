@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops-platform
+  name: devops-platform-deployment
 spec:
   replicas: 1
   selector:
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: devops-platform
-          image: viniciusmoraodev/devops-platform:teste-pipeline
+          image: viniciusmoraodev/devops-platform:
           ports:
             - containerPort: 80
