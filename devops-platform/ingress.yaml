@@ -8,10 +8,17 @@ spec:
     - host: devops-platform.conexus.dev
       http:
         paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: devops-platform-backend-svc
+                port:
+                  number: 3001
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: devops-platform-service
+                name: devops-platform-frontend-svc
                 port:
                   number: 80

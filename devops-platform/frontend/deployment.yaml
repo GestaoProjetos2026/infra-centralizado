@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-platform-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-platform-frontend
+  template:
+    metadata:
+      labels:
+        app: devops-platform-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: viniciusmoraodev/devops-platform-frontend:latest # Ajuste o nome da imagem
+          ports:
+            - containerPort: 80
