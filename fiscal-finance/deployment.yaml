@@ -1,1 +1,19 @@
-
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fiscal-finance-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fiscal-finance
+  template:
+    metadata:
+      labels:
+        app: fiscal-finance
+    spec:
+      containers:
+        - name: fiscal-finance
+          image: viniciusmoraodev/fiscal-finance:latest
+          ports:
+            - containerPort: 80
