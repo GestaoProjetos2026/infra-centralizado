@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: core-engine
-          image: viniciusmoraodev/core-engine:
+          image: viniciusmoraodev/core-engine:latest
           ports:
             - containerPort: 80
