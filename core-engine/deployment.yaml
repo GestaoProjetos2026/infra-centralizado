@@ -22,3 +22,10 @@ spec:
               value: "production"
             - name: PORT
               value: "3000"
+            #Lucas mudou aqui
+            - name: DATABASE_URL
+              value: "postgresql://admin:admin123@localhost:5433/erp_core"
+            - name: REDIS_URL
+              value: "redis://localhost:6379"
+            - name: JWT_SECRET
+              value: "super-secret-key-change-in-production"
