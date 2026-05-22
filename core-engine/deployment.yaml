@@ -12,15 +12,15 @@ spec:
       labels:
         app: core-engine
     spec:
-      initContainers:
-        - name: prisma-migrate
-          image: viniciusmoraodev/core-engine:v1.0.25
-          command: ["sh","-c","npx prisma migrate deploy && node dist/prisma/seed.js"]
-          env:
-            - name: DATABASE_URL
-              value: "postgresql://admin:admin123@40.82.176.176:5432/erp_core"
-            - name: REDIS_URL
-              value: "redis://40.82.176.176:6379"
+      # initContainers:
+      #   - name: prisma-migrate
+      #     image: viniciusmoraodev/core-engine:v1.0.25
+      #     command: ["sh","-c","npx prisma migrate deploy && node dist/prisma/seed.js"]
+      #     env:
+      #       - name: DATABASE_URL
+      #         value: "postgresql://admin:admin123@40.82.176.176:5432/erp_core"
+      #       - name: REDIS_URL
+      #         value: "redis://40.82.176.176:6379"
       
       containers:
         - name: core-engine
