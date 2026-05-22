@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: seu-usuario/fiscal-finance-frontend:latest
+          image: viniciusmoraodev/fiscal-finance-frontend:v1.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80
