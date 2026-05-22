@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
         - name: prisma-migrate
-          image: viniciusmoraodev/core-engine:v1.0.30
+          image: viniciusmoraodev/core-engine:v1.0.31
           command: 
             - "sh"
             - "-c"
@@ -29,7 +29,7 @@ spec:
       
       containers:
         - name: core-engine
-          image: viniciusmoraodev/core-engine:v1.0.30
+          image: viniciusmoraodev/core-engine:v1.0.31
           ports:
             - containerPort: 3000
           env:
