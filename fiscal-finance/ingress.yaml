@@ -5,12 +5,24 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - http:
+    - host: app.fiscal-finance.40.82.176.176.nip.io
+      http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: fiscal-finance-service
+                name: fiscal-finance-frontend-svc
                 port:
                   number: 80
+
+    - host: api.fiscal-finance.40.82.176.176.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: fiscal-finance-backend-svc
+                port:
+                  number: 5000
