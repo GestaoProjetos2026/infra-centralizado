@@ -15,7 +15,7 @@ spec:
       initContainers:
         - name: prisma-migrate
           image: viniciusmoraodev/core-engine:v1.0.30
-          command: ["sh","-c","npx prisma migrate deploy && node dist/prisma/seed.js || true"]
+          command: ["sh","-c","npx prisma migrate deploy && node dist/prisma/seed.js"]
           env:
             - name: DATABASE_URL
               value: "postgresql://admin:admin123@40.82.176.176:5433/erp_core"
