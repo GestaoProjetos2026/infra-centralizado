@@ -15,7 +15,6 @@ spec:
                 name: fiscal-finance-frontend-svc
                 port:
                   number: 80
-
     - host: api.fiscal-finance.40.82.176.176.nip.io
       http:
         paths:
