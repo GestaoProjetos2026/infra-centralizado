@@ -14,7 +14,7 @@ spec:
     spec:
       initContainers:
         - name: prisma-migrate
-          image: viniciusmoraodev/core-engine:v1.0.24
+          image: viniciusmoraodev/core-engine:v1.0.25
           command: ["sh","-c","npx prisma migrate deploy && node dist/prisma/seed.js"]
           env:
             - name: DATABASE_URL
@@ -24,7 +24,7 @@ spec:
       
       containers:
         - name: core-engine
-          image: viniciusmoraodev/core-engine:v1.0.24
+          image: viniciusmoraodev/core-engine:v1.0.25
           ports:
             - containerPort: 3000
           env:
