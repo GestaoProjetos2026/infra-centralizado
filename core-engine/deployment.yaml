@@ -31,11 +31,11 @@ spec:
             - name: NODE_ENV
               value: "production"
             - name: PORT
-              value: "3001"
+              value: "3000"
             #Lucas mudou aqui
             - name: DATABASE_URL
               value: "postgresql://admin:admin123@40.82.176.176:5433/erp_core"
             - name: REDIS_URL
-              value: "redis://http://40.82.176.176:6379"
+              value: "redis://40.82.176.176:6379"
             - name: JWT_SECRET
               value: "super-secret-key-change-in-production"
