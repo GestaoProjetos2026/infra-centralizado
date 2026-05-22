@@ -12,6 +12,16 @@ spec:
       labels:
         app: core-engine
     spec:
+      initContainers:
+        - name: prisma-migrate
+          image: viniciusmoraodev/core-engine:v1.0.24
+          command: ["sh","-c","npx prisma migrate deploy && node dist/prisma/seed.js"]
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://admin:admin123@40.82.176.176:5432/erp_core"
+            - name: REDIS_URL
+              value: "redis://40.82.176.176:6379"
+      
       containers:
         - name: core-engine
           image: viniciusmoraodev/core-engine:v1.0.24
@@ -26,6 +36,6 @@ spec:
             - name: DATABASE_URL
               value: "postgresql://admin:admin123@40.82.176.176:5433/erp_core"
             - name: REDIS_URL
-              value: "redis://http://40.82.176.176/:6379"
+              value: "redis://http://40.82.176.176:6379"
             - name: JWT_SECRET
               value: "super-secret-key-change-in-production"
