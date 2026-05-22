@@ -71,7 +71,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: <seu-registry>/erp-backend:latest
+          image: viniciusmoraodev/core-engine-backend:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
