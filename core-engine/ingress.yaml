@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-    - host: core-engine.40.82.176.176.nip.io
+    - host: app.core-engine.40.82.176.176.nip.io
       http:
         paths:
           - path: /
@@ -16,7 +16,7 @@ spec:
                 name: frontend
                 port:
                   number: 80
-    - host: core-engine.40.82.176.176.nip.io
+    - host: api.core-engine.40.82.176.176.nip.io
       http:
         paths:
           - path: /
