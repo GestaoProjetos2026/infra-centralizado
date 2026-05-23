@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-desk-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-desk-frontend
+  template:
+    metadata:
+      labels:
+        app: service-desk-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: viniciusmoraodev/service-desk-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

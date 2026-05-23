@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-desk-backend-svc
+spec:
+  selector:
+    app: service-desk-backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000

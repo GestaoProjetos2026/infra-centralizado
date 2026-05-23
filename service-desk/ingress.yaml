@@ -5,12 +5,26 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - http:
+    # 1. Rota do Frontend (Acessado pelo navegador)
+    - host: app.service-desk.40.82.176.176.nip.io
+      http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: service-desk-service
+                name: service-desk-frontend-svc
                 port:
                   number: 80
+
+    # 2. Rota do Backend (Consumida pelo Frontend)
+    - host: api.service-desk.40.82.176.176.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: service-desk-backend-svc
+                port:
+                  number: 8000

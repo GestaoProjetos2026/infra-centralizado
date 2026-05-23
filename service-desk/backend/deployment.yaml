@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-desk-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-desk-backend
+  template:
+    metadata:
+      labels:
+        app: service-desk-backend
+    spec:
+      containers:
+        - name: backend
+          image: viniciusmoraodev/service-desk-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
