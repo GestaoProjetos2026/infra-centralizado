@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crm-leads-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crm-leads-frontend
+  template:
+    metadata:
+      labels:
+        app: crm-leads-frontend
+    spec:
+      containers:
+        - name: frontend
+          image: seu-usuario/crm-leads-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3032

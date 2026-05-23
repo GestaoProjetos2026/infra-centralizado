@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crm-leads-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crm-leads-backend
+  template:
+    metadata:
+      labels:
+        app: crm-leads-backend
+    spec:
+      containers:
+        - name: backend
+          image: seu-usuario/crm-leads-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3031
+          env:
+            - name: NODE_ENV
+              value: "production"
