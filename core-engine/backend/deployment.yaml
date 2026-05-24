@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: viniciusmoraodev/core-engine-backend:v1.1.18
+          image: viniciusmoraodev/core-engine-backend:v1.1.19
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
