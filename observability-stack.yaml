@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: observability-stack
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://grafana.github.io/helm-charts'
+    targetRevision: 2.10.2
+    chart: loki-stack
+    helm:
+      values: |
+        loki:
+          enabled: true
+          isDefault: true
+          persistence:
+            enabled: true
+            storageClassName: local-path
+            size: 5Gi
+        
+        promtail:
+          enabled: true
+          
+        grafana:
+          enabled: true
+          persistence:
+            enabled: true
+            storageClassName: local-path
+            size: 2Gi
+          ingress:
+            enabled: true
+            ingressClassName: traefik
+            annotations:
+              kubernetes.io/ingress.class: traefik
+            hosts:
+              - grafana.40.82.176.176.nip.io/
+            path: /
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: observability
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
