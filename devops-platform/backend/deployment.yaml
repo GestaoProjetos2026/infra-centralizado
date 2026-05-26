@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: viniciusmoraodev/devops-platform-backend:v6.0.4
+          image: viniciusmoraodev/devops-platform-backend:v6.0.5
           ports:
             - containerPort: 3001
           env:
