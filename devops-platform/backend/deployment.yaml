@@ -21,11 +21,20 @@ spec:
             - name: PORT
               value: "3001"
             - name: DB_TYPE
-              value: "sqlite"
-          volumeMounts:
-            - name: sqlite-data
-              mountPath: /app/data # Onde o SQLite vai salvar o arquivo .db
-      volumes:
-        - name: sqlite-data
-          persistentVolumeClaim:
-            claimName: devops-platform-backend-pvc
+              value: "postgres"
+            - name: DB_HOST
+              value: "postgres-svc.infra-banco.svc.cluster.local"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_NAME
+              value: "infra_banco"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: devops-db-secret
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: devops-db-secret
+                  key: DB_PASSWORD
