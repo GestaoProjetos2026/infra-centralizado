@@ -2,9 +2,17 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: devops-platform-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts:
+        - app.devops-platform.40.82.176.176.nip.io
+        - api.devops-platform.40.82.176.176.nip.io
+      secretName: devops-platform-tls-secret
   rules:
+    # Rota 1: Frontend
     - host: app.devops-platform.40.82.176.176.nip.io
       http:
         paths:
@@ -16,6 +24,7 @@ spec:
                 port:
                   number: 80
 
+    # Rota 2: Backend da API
     - host: api.devops-platform.40.82.176.176.nip.io
       http:
         paths:
