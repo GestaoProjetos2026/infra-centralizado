@@ -1,30 +1,3 @@
-# 1. PostgreSQL Service
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres
-spec:
-  selector:
-    app: postgres
-  ports:
-    - protocol: TCP
-      port: 5432
-      targetPort: 5432
----
-# 2. Redis Service
-apiVersion: v1
-kind: Service
-metadata:
-  name: redis
-spec:
-  selector:
-    app: redis
-  ports:
-    - protocol: TCP
-      port: 6379
-      targetPort: 6379
----
-# 3. Backend (NestJS) Service
 apiVersion: v1
 kind: Service
 metadata:
