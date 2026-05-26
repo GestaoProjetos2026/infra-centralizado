@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: core-engine-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: core-engine-backend
   template:
     metadata:
       labels:
-        app: backend
+        app: core-engine-backend
     spec:
       containers:
-        - name: backend
+        - name: core-engine-backend
           image: viniciusmoraodev/core-engine-backend:v1.1.26
           imagePullPolicy: Always
           ports:
