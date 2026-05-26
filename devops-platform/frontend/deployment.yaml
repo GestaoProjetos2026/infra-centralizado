@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: viniciusmoraodev/devops-platform-frontend:v5.0.2
+          image: viniciusmoraodev/devops-platform-frontend:v6.0.4
           ports:
             - containerPort: 80
