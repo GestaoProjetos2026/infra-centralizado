@@ -3,8 +3,14 @@ kind: Ingress
 metadata:
   name: core-engine-ingress
   annotations:
-    kubernetes.io/ingress.class: "traefik"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - app.core-engine.40.82.176.176.nip.io
+        - api.core-engine.40.82.176.176.nip.io
+      secretName: core-engine-tls-secret
   rules:
     - host: app.core-engine.40.82.176.176.nip.io
       http:
@@ -13,7 +19,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: frontend
+                name: core-engine-frontend-svc 
                 port:
                   number: 80
     - host: api.core-engine.40.82.176.176.nip.io
@@ -23,6 +29,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: backend
+                name: core-engine-backend-svc 
                 port:
                   number: 3000
