@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: core-engine-frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend
+      app: core-engine-frontend
   template:
     metadata:
       labels:
-        app: frontend
+        app: core-engine-frontend
     spec:
       containers:
         - name: frontend
