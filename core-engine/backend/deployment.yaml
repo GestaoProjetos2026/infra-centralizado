@@ -19,16 +19,25 @@ spec:
           ports:
             - containerPort: 3000
           env:
-            - name: DATABASE_URL
-              value: "postgresql://admin:admin123@postgres:5432/erp_core?schema=public"
-            - name: REDIS_URL
-              value: "redis://redis:6379"
-            - name: JWT_SECRET
-              value: "super-secret-key-change-in-production"
             - name: NODE_ENV
               value: "production"
             - name: PORT
               value: "3000"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: core-engine-secrets
+                  key: DATABASE_URL
+            - name: REDIS_URL
+              valueFrom:
+                secretKeyRef:
+                  name: core-engine-secrets
+                  key: REDIS_URL
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: core-engine-secrets
+                  key: JWT_SECRET
           livenessProbe:
             httpGet:
               path: /v1/health
