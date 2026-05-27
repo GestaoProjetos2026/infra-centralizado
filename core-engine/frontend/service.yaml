@@ -4,7 +4,7 @@ metadata:
   name: core-engine-frontend-svc
 spec:
   selector:
-    app: core-engine-frontend-svc
+    app: core-engine-frontend
   ports:
     - protocol: TCP
       port: 80
