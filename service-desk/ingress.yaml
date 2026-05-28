@@ -2,8 +2,15 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: service-desk-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: traefik
+  tls:
+    - hosts:
+        - app.service-desk.40.82.176.176.nip.io
+        - api.service-desk.40.82.176.176.nip.io
+      secretName: service-desk-tls-secret
   rules:
     # 1. Rota do Frontend (Acessado pelo navegador)
     - host: app.service-desk.40.82.176.176.nip.io
