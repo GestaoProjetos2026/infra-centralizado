@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: viniciusmoraodev/crm-leads-frontend:v2.4.12
+          image: viniciusmoraodev/crm-leads-frontend:v2.4.13
           imagePullPolicy: Always
           ports:
             - containerPort: 3032
