@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: viniciusmoraodev/core-engine-frontend:v1.2.20
+          image: viniciusmoraodev/core-engine-frontend:v1.2.21
           imagePullPolicy: Always
           ports:
             - containerPort: 80
