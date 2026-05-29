@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: viniciusmoraodev/crm-leads-backend:v3.0.3
+          image: viniciusmoraodev/crm-leads-backend:v3.0.4
           imagePullPolicy: Always
           ports:
             - containerPort: 3031
