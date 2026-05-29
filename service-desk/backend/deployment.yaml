@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: viniciusmoraodev/service-desk-backend:v1.0.15
+          image: viniciusmoraodev/service-desk-backend:v1.0.16
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
