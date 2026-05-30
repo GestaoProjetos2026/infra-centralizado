@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: viniciusmoraodev/service-desk-frontend:v1.0.30
+          image: viniciusmoraodev/service-desk-frontend:v2.0.0
           imagePullPolicy: Always
           ports:
             - containerPort: 80
